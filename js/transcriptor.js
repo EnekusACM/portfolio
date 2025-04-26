@@ -12,7 +12,8 @@ if (!('webkitSpeechRecognition' in window)) {
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript; // Obtener el texto reconocido
         console.log('Texto reconocido:', transcript);
-        alert(`Has dicho: "${transcript}"`);
+        const resultadoElement = document.getElementById('resultado');
+        resultadoElement.textContent = transcript; // Mostrar el texto en el <p>
     };
 
     // Evento que se dispara en caso de error
@@ -27,16 +28,29 @@ if (!('webkitSpeechRecognition' in window)) {
     };
 
     // Iniciar el reconocimiento de voz al hacer clic en un botón
-    const startButton = document.createElement('button');
-    startButton.textContent = 'Habla ahora';
-    startButton.style.padding = '10px 20px';
-    startButton.style.fontSize = '16px';
-    startButton.style.cursor = 'pointer';
+    const startButton = document.getElementById('startVoice');
     startButton.addEventListener('click', () => {
         recognition.start();
         console.log('Reconocimiento de voz iniciado.');
     });
 
-    // Agregar el botón al documento
-    document.body.appendChild(startButton);
+    // Agregar funcionalidad para copiar al portapapeles
+    const copyButton = document.createElement('button');
+    copyButton.textContent = 'Copiar en portapapeles';
+    copyButton.style.marginLeft = '10px';
+    copyButton.addEventListener('click', () => {
+        const resultadoElement = document.getElementById('resultado');
+        const textToCopy = resultadoElement.textContent;
+        if (textToCopy) {
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => alert('Texto copiado al portapapeles.'))
+                .catch(err => console.error('Error al copiar al portapapeles:', err));
+        } else {
+            alert('No hay texto para copiar.');
+        }
+    });
+
+    // Agregar el botón de copiar al lado del <p>
+    const resultadoElement = document.getElementById('resultado');
+    resultadoElement.insertAdjacentElement('afterend', copyButton);
 }
