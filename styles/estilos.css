@@ -1,13 +1,22 @@
+/* Define the background color as a CSS variable */
+:root {
+    --bck: #dbdbdb;
+    --bckcard: #c3c3f0;
+    --bckcard-hover: #c0f7f7;
+    --letter-color: #222222;
+    --letter-color-hover: #1b1515;
+}
+
+
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--bck);
     margin: 20px;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    color: var(--letter-color);
 }
 
 h1 {
-    color: #444;
+    color: var(--letter-color);
 }
 
 form {
@@ -21,14 +30,14 @@ input, button {
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--bckcard);
+    color: var(--letter-color);
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--bckcard-hover);
 }
 
 #resultado {
