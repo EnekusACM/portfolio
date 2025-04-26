@@ -8,23 +8,29 @@ if (!('webkitSpeechRecognition' in window)) {
     recognition.continuous = false; // No continuar escuchando después de un resultado
     recognition.interimResults = false; // No mostrar resultados intermedios
 
+    // Obtener referencia al ícono de carga
+    const loadingIcon = document.getElementById('loadingIcon');
+
     // Evento que se dispara cuando se obtiene un resultado
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript; // Obtener el texto reconocido
         console.log('Texto reconocido:', transcript);
         const resultadoElement = document.getElementById('resultado');
         resultadoElement.textContent = transcript; // Mostrar el texto en el <p>
+        loadingIcon.style.display = 'none'; // Ocultar el ícono de carga
     };
 
     // Evento que se dispara en caso de error
     recognition.onerror = (event) => {
         console.error('Error en el reconocimiento de voz:', event.error);
         alert('Ocurrió un error durante el reconocimiento de voz.');
+        loadingIcon.style.display = 'none'; // Ocultar el ícono de carga
     };
 
     // Evento que se dispara cuando se detiene el reconocimiento
     recognition.onend = () => {
         console.log('Reconocimiento de voz detenido.');
+        loadingIcon.style.display = 'none'; // Ocultar el ícono de carga
     };
 
     // Iniciar el reconocimiento de voz al hacer clic en un botón
@@ -32,6 +38,7 @@ if (!('webkitSpeechRecognition' in window)) {
     startButton.addEventListener('click', () => {
         recognition.start();
         console.log('Reconocimiento de voz iniciado.');
+        loadingIcon.style.display = 'block'; // Mostrar el ícono de carga
     });
 
     // Agregar funcionalidad para copiar al portapapeles

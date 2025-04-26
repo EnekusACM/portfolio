@@ -108,3 +108,9 @@ button + button {
   text-align: center;
   color: var(--color-primario);
 }
+#loadingIcon {
+  text-align: center;
+  font-size: 18px;
+  color: var(--color-primario);
+  margin-top: 10px;
+}
