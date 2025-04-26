@@ -346,3 +346,50 @@ a {
     @media (max-width: 600px) {
     font-size: 16px;}
 }
+@keyframes glowAndShift {
+    0% {
+        background-color: rgba(0, 128, 255, 0.5); /* Color inicial (brillante azul) con 50% de transparencia */
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 128, 255, 0.5);
+    }
+    25% {
+        background-color: rgba(0, 255, 128, 0.5); /* Transición a un verde brillante con 50% de transparencia */
+        color: #e0ffe0;
+        box-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+    }
+    50% {
+        background-color: rgba(255, 255, 0, 0.5); /* Color amarillo brillante con 50% de transparencia */
+        color: #000000;
+        box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+    }
+    75% {
+        background-color: rgba(0, 255, 128, 0.5); /* Volviendo al verde brillante con 50% de transparencia */
+        color: #e0ffe0;
+        box-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+    }
+    100% {
+        background-color: rgba(0, 128, 255, 0.5); /* Regresando al azul inicial con 50% de transparencia */
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 128, 255, 0.5);
+    }
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--letter-color);
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 20px;
+    animation: glowAndShift 8s infinite; /* Duración de 8 segundos, se repite infinitamente */
+    padding: 0 16px 4px;
+    margin-top: 24px;
+    @media (max-width: 936px) {
+        font-size: 36px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        text-align: left;
+    }
+    @media (max-width: 600px) {
+        padding-right: 80px;
+        font-size: 24px;
+    }
+}
