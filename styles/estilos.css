@@ -4,9 +4,12 @@
     --bckcard: #c3c3f0;
     --bckcard-hover: #c0f7f7;
     --letter-color: #222222;
+    --letter-color-black: #fff;
     --letter-color-hover: #1b1515;
-}
+    --letter-color-final: #df5555;
+    --letter-color-final-2: #c2a5f1;
 
+}
 
 body {
     background-color: var(--bck);
@@ -45,49 +48,223 @@ button:hover {
     font-weight: bold;
     margin-top: 10px;
 }
+
 .image-style {
     width: 100%;
     height: auto;
     max-width: 350px;
     border-radius: 24px;
 }
+
 .container {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  cursor: pointer;
-  text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    cursor: pointer;
+    text-align: center;
 }
 
 .container h1 {
-  background: #333;
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
+    background: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .content {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: scaleY(0);
-  transition: all 0.5s ease;
-  transform-origin: top;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+    transform-origin: top;
 }
 
 .container.open .content {
-  max-height: 1000px; /* Ajusta si añades más elementos */
-  opacity: 1;
-  transform: scaleY(1);
+    max-height: 1000px; /* Ajusta si añades más elementos */
+    opacity: 1;
+    transform: scaleY(1);
 }
 
 .item {
-  background: #f0f0f0;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
+    background: #f0f0f0;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
+}
+
+/* Estilos para el menú desplegable */
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: transparent; /* Fondo transparente cuando está cerrado */
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+#sidebar.open {
+    background-color: #333; /* Fondo gris cuando está abierto */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra solo cuando está abierto */
+}
+
+#toggleMenu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: var(--letter-color-black);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 5px;
+}
+
+/* Estilos para el contenido del menú */
+#menuContent {
+    display: none; /* Ocultar el contenido inicialmente */
+    padding: 20px;
+    color: var(--letter-color-black);
+    overflow-y: auto; /* Habilitar scroll si el contenido es muy largo */
+    max-height: 100%;
+    opacity: 0; /* Ocultar inicialmente */
+    transition: opacity 0.3s ease; /* Transición suave para la opacidad */
+    a {
+        color: var(--letter-color-black);
+        text-decoration: none;
+    }
+    ul {
+        display: flex
+    ;
+        gap: 8px;
+        flex-direction: column;
+    }
+}
+
+#sidebar.open #menuContent {
+    display: block; /* Mostrar el contenido cuando el menú esté abierto */
+    opacity: 1; /* Hacer visible el contenido */
+}
+
+#menuContent h2 {
+    opacity: 0;
+    transform: translateY(-20px); /* Mover hacia arriba inicialmente */
+    animation: fadeIn 0.5s ease forwards; /* Animación para aparecer */
+    animation-delay: 0.3s; /* Retraso para el h2 */
+}
+
+#menuContent ul li {
+    opacity: 0;
+    color: var(--letter-color-black);
+    transform: translateY(-20px); /* Mover hacia arriba inicialmente */
+    animation: fadeIn 0.5s ease forwards; /* Animación para aparecer */
+}
+
+#menuContent ul li:nth-child(1) {
+    animation-delay: 0.8s; /* Retraso para el primer li */
+}
+
+#menuContent ul li:nth-child(2) {
+    animation-delay: 1.3s; /* Retraso para el segundo li */
+}
+
+#menuContent ul li:nth-child(3) {
+    animation-delay: 1.8s; /* Retraso para el tercer li */
+}
+
+#menuContent ul li:nth-child(4) {
+    animation-delay: 2.3s; /* Retraso para el cuarto li */
+}
+
+#menuContent ul li:nth-child(5) {
+    animation-delay: 2.8s; /* Retraso para el quinto li */
+}
+
+/* Definición de la animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Definición de la animación */
+@keyframes colorChange {
+    0% {
+        background-color: #333; /* Color inicial */
+        color: var(--letter-color-black);
+    }
+    100% {
+        background-color: #5e5e5f; /* Color final */
+        color: var(--letter-color-final);
+    }
+}
+
+/* Aplicar la animación al elemento */
+#menuContent {
+    background-color: #333; /* Color inicial */
+    ul {
+       padding-left: 16px;
+    }
+}
+
+#sidebar.open #menuContent {
+    animation: colorChange 1s ease 1s forwards;
+}
+#sidebar.open {
+    animation: colorChange 1s ease 1s forwards;
+}
+#menuContent ul li:nth-child(1):hover {
+    color: var(--letter-color-final);
+    a {
+        color: var(--letter-color-final-2);
+        transition: color 0.2s ease;
+
+    }
+}
+
+#menuContent ul li:nth-child(2):hover {
+    color: var(--letter-color-final);
+    a {
+        color: var(--letter-color-final-2);
+        transition: color 0.2s ease;
+
+    }
+}
+
+#menuContent ul li:nth-child(3):hover {
+    color: var(--letter-color-final);
+    a {
+        color: var(--letter-color-final-2);
+        transition: color 0.2s ease;
+
+    }
+}
+
+#menuContent ul li:nth-child(4):hover {
+    color: var(--letter-color-final);
+    a {
+        color: var(--letter-color-final-2);
+        transition: color 0.2s ease;
+
+    }
+}
+
+#menuContent ul li:nth-child(5):hover {
+    color: var(--letter-color-final);
+    a {
+        color: var(--letter-color-final-2);
+        transition: color 0.2s ease;
+
+    }
 }
