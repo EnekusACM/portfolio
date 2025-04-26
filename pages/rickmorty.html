@@ -25,19 +25,18 @@
 
   <form id="character-form">
     <label for="name">Nombre (ej: Rick, Morty)</label>
-    <input list="name-options" id="name" name="name" placeholder="Nombre (opcional)">
-    <datalist id="name-options">
-      <!-- Aquí puedes agregar más nombres según los personajes disponibles -->
-      <option value="Rick">
-      <option value="Morty">
-      <option value="Summer">
-      <option value="Beth">
-      <option value="Jerry">
-      <option value="Birdperson">
-      <option value="Mr. Meeseeks">
-      <option value="Squanchy">
-    </datalist>
-
+    <select id="name" name="name">
+      <option value="">Selecciona un personaje</option>
+      <option value="Rick">Rick</option>
+      <option value="Morty">Morty</option>
+      <option value="Summer">Summer</option>
+      <option value="Beth">Beth</option>
+      <option value="Jerry">Jerry</option>
+      <option value="Birdperson">Birdperson</option>
+      <option value="Mr. Meeseeks">Mr. Meeseeks</option>
+      <option value="Squanchy">Squanchy</option>
+    </select></select>
+    
     <label for="status">Estado</label>
     <select id="status" name="status">
       <option value="">Cualquiera</option>
