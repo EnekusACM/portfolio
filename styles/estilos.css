@@ -268,3 +268,81 @@ a {
 
     }
 }
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--letter-color);
+    margin-bottom: 20px;
+    text-align: center;
+    @media (max-width: 936px) {
+        font-size: 36px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        text-align: left;
+    }
+    @media (max-width: 600px) {
+     padding-right: 80px;
+    font-size: 24px;}
+}
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: auto;
+    margin-bottom: 44px;
+    flex-direction: column;
+}
+.emo-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--letter-color);
+    text-align: center;
+    margin-bottom: 24px;
+    font-family: 'Dancing Script', cursive; /* Cambia 'Dancing Script' por la fuente que elijas */
+    
+}
+@keyframes burnAndFreeze {
+    0% {
+        background-color: rgba(255, 69, 0, 0.5); /* Color inicial (quemándose) con 50% de transparencia */
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+    }
+    25% {
+        background-color: rgba(255, 140, 0, 0.5); /* Transición a un color más claro con 50% de transparencia */
+        color: #ffe4b5;
+        box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+    }
+    50% {
+        background-color: rgba(255, 215, 0, 0.5); /* Color más brillante (quemándose) con 50% de transparencia */
+        color: #000000;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    }
+    75% {
+        background-color: rgba(255, 140, 0, 0.5); /* Volviendo al color más oscuro con 50% de transparencia */
+        color: #ffe4b5;
+        box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+    }
+    100% {
+        background-color: rgba(94, 94, 95, 0.5); /* Color final (congelado) con 50% de transparencia */
+        color: #c2a5f1;
+        box-shadow: 0 0 10px rgba(94, 94, 95, 0.5);
+    }
+}
+.emo-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--letter-color);
+    text-align: center;
+    margin-bottom: 24px;
+    font-family: 'Dancing Script', cursive;
+    border-radius: 20px;
+    animation: burnAndFreeze 10s infinite; /* Duración de 10 segundos, se repite infinitamente */
+    padding: 0 16px 4px;
+    margin-top: 24px;
+    @media (max-width: 936px) {
+        font-size: 24px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        text-align: left;
+        margin-bottom: 16px;
+    }
+    @media (max-width: 600px) {
+    font-size: 16px;}
+}
