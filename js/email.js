@@ -4,11 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const sendEmailButton = document.getElementById("sendEmail");
     const messageBox = document.getElementById("messageBox");
 
-    // Inicializar EmailJS con tu User ID
-    emailjs.init("enekodev@outlook.es"); // Reemplaza con tu User ID
+    // Inicializar EmailJS correctamente
+    emailjs.init("LOmf96oLgWkdKsmkJ"); // Solo la clave pública
+
+    console.log("EmailJS inicializado correctamente");
 
     // Mostrar el formulario al hacer clic en el botón
     showFormButton.addEventListener("click", () => {
+        console.log("Botón 'Escribir Mensaje' clickeado");
         formContainer.style.display = "block";
     });
 
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const templateParams = {
             message: message,
         };
+        console.log("Enviando con parámetros:", templateParams);
 
         // Enviar el correo usando EmailJS
         emailjs.send("Enigmas.01", "template_0t27rac", templateParams)

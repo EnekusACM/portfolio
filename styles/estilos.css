@@ -397,9 +397,9 @@ a {
     margin: 20px;
     text-align: center;
 }
-
 #formContainer {
     margin-top: 10px;
+    text-align: left; /* Alinear el contenido a la izquierda */
 }
 
 #messageBox {
@@ -411,7 +411,8 @@ a {
 }
 
 #sendEmail {
-    display: inline-block;
+    display: block; /* Hacer que el botón ocupe toda la línea */
+    margin-top: 5px; /* Espacio entre la caja de texto y el botón */
     padding: 10px 20px;
     font-size: 16px;
     text-decoration: none;

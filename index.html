@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enekus Core Mechanic Mind</title>
     <link rel="stylesheet" href="styles/estilos.css">
+
+    <!-- EmailJS actualizado -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <div class="title">Enekus Core Mechanic Mind</div>
+
     <div class="description">
         <h2>Descripción</h2>
         <p>Esta es una página de prueba para mostrar diferentes opciones de herramientas que he creado.</p>
         <p>Haz clic en el botón del menú para ver las opciones disponibles.</p>
     </div>
-     <div class="img-container">
+
+    <div class="img-container">
         <div class="emo-title">Caminando al horizonte</div>
         <img src="images/imagIA.jpeg" alt="Imagen de prueba" class="image-style" />
     </div>
+
     <div class="container" onclick="this.classList.toggle('open')">
         <h1>Opciones</h1>
         <div class="content">
@@ -26,6 +32,7 @@
             <a href="pages/conversor.html"><div class="item">Convertir Palabras a Número, en construcción</div></a>
         </div>
     </div>
+
     <div id="sidebar">
         <button id="toggleMenu">☰ Menú</button>
         <div id="menuContent">
@@ -39,15 +46,19 @@
             </ul>
         </div>
     </div>
-    <script src="js/menu.js"></script><div class="email-form">
+
+    <div class="email-form">
+        <h2>Enviar un Mensaje a Eneko</h2>
+        <p>Si quieres decirme algo, puedes escribir un mensaje aquí ¡Es anónimo!</p>
         <button id="showForm">Escribir Mensaje</button>
         <div id="formContainer" style="display: none;">
             <textarea id="messageBox" placeholder="Escribe tu mensaje aquí"></textarea>
             <button id="sendEmail">Enviar</button>
         </div>
     </div>
-    </div>
-    <script src="js/email.js"></script>
 
+    <!-- Scripts: primero los que no dependen de otros -->
+    <script src="js/menu.js"></script>
+    <script src="js/email.js"></script>
 </body>
 </html>
