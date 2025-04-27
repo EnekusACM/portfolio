@@ -1,0 +1,93 @@
+/* Define the background color as a CSS variable */
+:root {
+    --bck: #dbdbdb;
+    --bckcard: #c3c3f0;
+    --bckcard-hover: #c0f7f7;
+    --letter-color: #222222;
+    --letter-color-black: #fff;
+    --letter-color-hover: #1b1515;
+    --letter-color-final: #df5555;
+    --letter-color-final-2: #c2a5f1;
+
+}
+body {    
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 40px 16px;
+    padding: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column-reverse;
+    gap: 48px;
+}
+
+.email-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.email-form h2 {
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.email-form p {
+    margin-bottom: 20px;
+    color: #666666;
+    font-size: 14px;
+}
+
+input, textarea, button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+#backButton {
+ 
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+    background-color: #555555;
+}

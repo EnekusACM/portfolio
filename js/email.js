@@ -1,41 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const showFormButton = document.getElementById("showForm");
-    const formContainer = document.getElementById("formContainer");
     const sendEmailButton = document.getElementById("sendEmail");
     const messageBox = document.getElementById("messageBox");
+    const nameInput = document.getElementById("nameInput");
+    const emailForm = document.getElementById("emailForm");
 
-    // Inicializar EmailJS correctamente
-    emailjs.init("LOmf96oLgWkdKsmkJ"); // Solo la clave pública
+    // Inicializar EmailJS
+    emailjs.init("LOmf96oLgWkdKsmkJ");
 
     console.log("EmailJS inicializado correctamente");
 
-    // Mostrar el formulario al hacer clic en el botón
-    showFormButton.addEventListener("click", () => {
-        console.log("Botón 'Escribir Mensaje' clickeado");
-        formContainer.style.display = "block";
+    // Habilitar o deshabilitar el botón según el contenido del textarea
+    messageBox.addEventListener("input", () => {
+        sendEmailButton.disabled = messageBox.value.trim().length < 5;
     });
 
-    // Enviar el correo al hacer clic en "Enviar"
-    sendEmailButton.addEventListener("click", () => {
-        const message = messageBox.value;
+    // Manejar el envío del formulario
+    emailForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-        if (message.trim() === "") {
-            alert("Por favor, escribe un mensaje.");
-            return;
-        }
+        const message = messageBox.value.trim();
+        const name = nameInput.value.trim();
 
         // Configurar los parámetros para la plantilla de EmailJS
         const templateParams = {
+            name: name || "Anónimo",
             message: message,
         };
+
         console.log("Enviando con parámetros:", templateParams);
 
         // Enviar el correo usando EmailJS
         emailjs.send("Enigmas.01", "template_0t27rac", templateParams)
             .then(() => {
                 alert("Correo enviado con éxito.");
-                messageBox.value = ""; // Limpiar el campo de texto
-                formContainer.style.display = "none"; // Ocultar el formulario
+                emailForm.reset(); // Limpiar el formulario
+                sendEmailButton.disabled = true; // Deshabilitar el botón
             })
             .catch((error) => {
                 console.error("Error al enviar el correo:", error);

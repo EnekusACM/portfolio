@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar un Mensaje a Eneko</title>
+    <link rel="stylesheet" href="../styles/email.css">
+</head>
+<body>
+    <button id="backButton" onclick="window.location.href='../index.html'">Atrás</button>
+    <div class="email-form">
+        <h2>Enviar un Mensaje a Eneko</h2>
+        <p>Si quieres decirme algo, puedes escribir un mensaje aquí ¡Es anónimo!</p>
+        <form id="emailForm">
+            <input type="text" id="nameInput" placeholder="Tu nombre (opcional)" />
+            <textarea id="messageBox" placeholder="Escribe tu mensaje aquí (mínimo 5 caracteres)" minlength="5" required></textarea>
+            <button id="sendEmail" type="submit" disabled>Enviar</button>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="../js/email.js"></script>
+</body>
+</html>
