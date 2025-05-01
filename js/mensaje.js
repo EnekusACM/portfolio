@@ -139,3 +139,39 @@ document.getElementById('boton').addEventListener('click', () => {
     message.textContent = mensajeAleatorio;
     modal.style.display = 'block';
 });
+let currentIndex = 0;
+
+function moveCarousel(direction) {
+  const imagesContainer = document.querySelector('.carousel-images');
+  const images = document.querySelectorAll('.carousel-images img');
+  const totalImages = images.length;
+
+  currentIndex = (currentIndex + direction + totalImages) % totalImages;
+  const offset = -currentIndex * images[0].clientWidth;
+
+  imagesContainer.style.transform = `translateX(${offset}px)`;
+}
+// Función para generar un color aleatorio
+function generarColorAleatorio() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Seleccionar el corazón SVG
+const heartImage = document.querySelector('.heart-image');
+
+// Establecer un color inicial (rojo) y tamaño inicial
+heartImage.style.fill = '#5f1717';
+heartImage.style.maxWidth = '450px';
+heartImage.style.transition = 'fill 0.5s ease, max-width 0.5s ease'; // Transición suave para color y tamaño
+
+// Cambiar el color y tamaño al hacer clic
+heartImage.addEventListener('click', () => {
+    const colorAleatorio = generarColorAleatorio();
+    const tamañoAleatorio = `${Math.floor(Math.random() * (450 - 50 + 1) + 50)}px`; // Generar tamaño aleatorio entre 450 y 50px
+    heartImage.classList.add('color-dinamico'); // Asegurar que la clase permita el cambio
+    heartImage.style.fill = colorAleatorio; // Cambiar el color dinámicamente
+    heartImage.style.maxWidth = tamañoAleatorio; // Cambiar el tamaño dinámicamente
+});

@@ -53,3 +53,180 @@ body {
   #modal img { width: 100%; border-radius: 8px; }
   #close-btn { position: absolute; top: 10px; right: 10px; cursor: pointer; }
   label, input, select { display: block; margin: 5px auto; }
+  .carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    margin: 0 auto 44px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-images img {
+    max-width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .carousel-button.prev {
+    left: 10px;
+  }
+  
+  .carousel-button.next {
+    right: 10px;
+  }
+  .animated-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 24px;
+    border-radius: 44px;
+    cursor: pointer;
+    width: fit-content;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .animated-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .animated-button span {
+    display: inline-block;
+    animation: bounceAndFade 2s infinite;
+  }
+  
+  .animated-button::before,
+  .animated-button::after {
+    content: "✨";
+    position: absolute;
+    font-size: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: sparkle 1.5s infinite;
+  }
+  
+  .animated-button::before {
+    left: 10px;
+  }
+  
+  .animated-button::after {
+    right: 10px;
+  }
+  
+  @keyframes bounceAndFade {
+    0% {
+      font-size: 22px;
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  33% {
+      font-size: 20px;
+      color: #ff69b4;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+  }
+  66% {
+      font-size: 21px;
+
+      color: #00ffff;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+  }
+  100% {
+      font-size: 22px;
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+  @keyframes latido {
+    0% {
+        max-width: 350px;
+    }
+    33% {
+      max-width: 330px;
+    }
+    66% {
+      max-width: 325px;
+    }
+    100% {
+      max-width: 350px;
+    }
+  }
+  img.heart-image {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    border-radius: 20px;
+    align-self: center;
+    animation: latido 3s infinite;
+  }
+  .btn-container {
+   height: 100px;
+  }
+  .heart-image {
+    transition: fill 0.3s ease; /* Transición suave para el cambio de color */
+    max-width: 350px; /* Ajusta el tamaño según sea necesario */
+    display: block;
+    margin: 20px auto;
+}
+.heart-image.color-dinamico {
+  fill: inherit; /* Permitir que el color dinámico se aplique */
+}
+.btn-atras {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-atras:hover {
+  background-color: #0056b3;
+}

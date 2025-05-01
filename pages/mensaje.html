@@ -11,14 +11,36 @@
   <header>
     <h1 style="text-align: center; font-size: 48px;">Web de mensaje bonico</h1>
   </header>
+  <div class="description">
+    <p>Aquí hay unos animales bonicos en un carrousel de fotos.</p>
+    <p>Si quieres leer una frase tan bonita como tu alma pulsa en el botón de abajo</p>
   <main>
-    <div class="img-container">
-      <img src="../images/imagIA.jpeg" alt="Imagen de prueba" style="max-width: 350px; border-radius: 8px;" />
+    <div class="carousel">
+      <button class="carousel-button prev" onclick="moveCarousel(-1)">&#10094;</button>
+      <div class="carousel-images">
+        <img src="../images/img1.jpg" alt="Imagen 1">
+        <img src="../images/img2.jpg" alt="Imagen 2">
+        <img src="../images/img3.jpg" alt="Imagen 3">
+        <img src="../images/img4.jpg" alt="Imagen 4">
+        <img src="../images/img5.jpg" alt="Imagen 5">
+        <img src="../images/img6.jpg" alt="Imagen 6">
+        <img src="../images/img7.jpg" alt="Imagen 7">
+        <img src="../images/img8.jpg" alt="Imagen 8">
+        <img src="../images/img9.jpg" alt="Imagen 9">
+      </div>
+      <button class="carousel-button next" onclick="moveCarousel(1)">&#10095;</button>
+    </div><div class="btn-container">
+      <button id="boton" class="animated-button">
+        <span>✨ Haz clic para leer tu mensaje bonico ✨</span>
+      </button>
     </div>
-    <button id="boton">Haz clic para leer tu mensaje bonico</button>
-  </main>
-  <button id="btn-atras" onclick="window.location.href='../index.html'">Atrás</button>
-
+    <p id="mensaje" class="mensaje">Juega con este corazón, ¡pincha en él!</p>
+    <svg class="heart-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg> 
+    <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
+      &#x1F3E0; <!-- Ícono de casa -->
+    </button>
   <script src="../js/mensaje.js"></script>
 </body>
 </html>
