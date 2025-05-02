@@ -1,0 +1,4 @@
+.blurred {
+    filter: blur(666px); /* Ajusta el valor del blur según sea necesario */
+    pointer-events: none; /* Evita la interacción con la página mientras está desenfocada */
+}
