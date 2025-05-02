@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reflejos Rápidos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    #circle {
+      width: 80px;
+      height: 80px;
+      background-color: crimson;
+      border-radius: 50%;
+      position: absolute;
+      display: none;
+      cursor: pointer;
+    }
+    #start-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Juego de Reflejos</h1>
+  <button id="start-btn">Comenzar</button>
+  <div id="circle"></div>
+  <div id="message"></div>
+
+  <script>
+    const circle = document.getElementById("circle");
+    const startBtn = document.getElementById("start-btn");
+    const message = document.getElementById("message");
+    let appearTime, timeoutID;
+
+    function showCircle() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+
+      circle.style.left = `${x}px`;
+      circle.style.top = `${y}px`;
+      circle.style.display = "block";
+
+      appearTime = Date.now();
+    }
+
+    function startGame() {
+      message.textContent = "";
+      circle.style.display = "none";
+
+      const delay = Math.random() * 2000 + 1000; // entre 1 y 3 segundos
+      timeoutID = setTimeout(showCircle, delay);
+    }
+
+    circle.addEventListener("click", () => {
+      const reactionTime = (Date.now() - appearTime) / 1000;
+      circle.style.display = "none";
+      message.textContent = `¡Buen reflejo! Tiempo de reacción: ${reactionTime.toFixed(3)} segundos.`;
+    });
+
+    startBtn.addEventListener("click", () => {
+      clearTimeout(timeoutID);
+      startGame();
+    });
+  </script>
+</body>
+</html>
