@@ -1,0 +1,112 @@
+body {
+    font-family: 'Press Start 2P', cursive; /* Fuente retro */
+    text-align: center;
+    background: #b9b9b9;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+p {
+    font-size: 1rem;
+    margin: 10px 0;
+    }
+
+#circle {
+    width: 80px;
+    height: 80px;
+    background-color: crimson;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px 5px crimson, 0 0 30px 10px crimson inset;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+#start-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px #d94e3b;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#start-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 #d94e3b;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#countdown {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.checkbox-container label {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+.btn-atras {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-atras:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}

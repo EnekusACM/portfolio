@@ -1,78 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Reflejos Rápidos</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    #circle {
-      width: 80px;
-      height: 80px;
-      background-color: crimson;
-      border-radius: 50%;
-      position: absolute;
-      display: none;
-      cursor: pointer;
-    }
-    #start-btn {
-      margin-top: 30px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    #message {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Reflejos Rápidos</title>
+    <link rel="stylesheet" href="../styles/clickcirculo.css">
 </head>
 <body>
-  <h1>Juego de Reflejos</h1>
-  <button id="start-btn">Comenzar</button>
-  <div id="circle"></div>
-  <div id="message"></div>
+    <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
+        &#x1F3E0; <!-- Ícono de casa -->
+    </button>
+    <h1>Juego de Reflejos</h1>
+    <p>Instrucciones</p>
+    <p>Presiona el botón para comenzar y haz clic en el círculo rojo tan rápido como puedas cuando aparezca en la pantalla.</p>
+    <p>¡Pon a prueba tus reflejos!</p>
 
-  <script>
-    const circle = document.getElementById("circle");
-    const startBtn = document.getElementById("start-btn");
-    const message = document.getElementById("message");
-    let appearTime, timeoutID;
+    <button id="start-btn">Comenzar</button>
+    
+    <div class="checkbox-container">
+        <input type="checkbox" id="countdown-mode">
+        <label for="countdown-mode">Modo con cuenta atrás</label>
+    </div>
+    <div id="countdown"></div>
+    <div id="circle"></div>
+    <div id="message"></div>
 
-    function showCircle() {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 100);
-
-      circle.style.left = `${x}px`;
-      circle.style.top = `${y}px`;
-      circle.style.display = "block";
-
-      appearTime = Date.now();
-    }
-
-    function startGame() {
-      message.textContent = "";
-      circle.style.display = "none";
-
-      const delay = Math.random() * 2000 + 1000; // entre 1 y 3 segundos
-      timeoutID = setTimeout(showCircle, delay);
-    }
-
-    circle.addEventListener("click", () => {
-      const reactionTime = (Date.now() - appearTime) / 1000;
-      circle.style.display = "none";
-      message.textContent = `¡Buen reflejo! Tiempo de reacción: ${reactionTime.toFixed(3)} segundos.`;
-    });
-
-    startBtn.addEventListener("click", () => {
-      clearTimeout(timeoutID);
-      startGame();
-    });
-  </script>
+    <script src="../js/clickgame.js"></script>
 </body>
 </html>
