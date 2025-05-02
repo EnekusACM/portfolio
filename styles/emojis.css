@@ -1,0 +1,74 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #fafafa;
+  margin: 42px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 10px; /* Añadido para evitar que se corte */
+  font-size: 24px; /* Ajusta el tamaño del título */
+  word-wrap: break-word; /* Permite que el texto se ajuste */
+}
+
+#game {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+  width: calc(100% - 20px);
+  max-width: 100%;
+}
+
+.emoji {
+  font-size: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#score {
+  margin-top: 15px;
+  font-size: 18px;
+}
+.btn-atras {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-atras:hover {
+  background-color: #0056b3;
+}
+/* Media queries para pantallas pequeñas */
+@media (max-width: 600px) {
+  .body {
+    margin: 0 16px; /* Añadido para evitar que se corte */
+  }
+  h1 {
+    font-size: 18px; /* Reduce el tamaño del título en pantallas pequeñas */
+  }
+
+  .emoji {
+    font-size: 8vw;
+  }
+}
