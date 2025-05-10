@@ -2,6 +2,12 @@ const videoElement = document.getElementById('camera');
 const canvasElement = document.getElementById('output');
 const canvasCtx = canvasElement.getContext('2d');
 
+// Ajustar el tamaño del canvas al tamaño del video
+videoElement.addEventListener('loadeddata', () => {
+  canvasElement.width = videoElement.videoWidth;
+  canvasElement.height = videoElement.videoHeight;
+});
+
 // Configurar MediaPipe Hands
 const hands = new Hands({
   locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
