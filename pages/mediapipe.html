@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MediaPipe Hands</title>
   <link rel="stylesheet" href="../styles/mediapipe.css">
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -15,8 +17,8 @@
   </header>
   <main>
     <div class="camera-container">
-      <video id="camera" autoplay playsinline></video>
-      <canvas id="output" class="output"></canvas>
+      <video class="input_video" id="camera" width="480px" height="320px"></video>
+      <canvas class="output_canvas" width="480px" height="320px"></canvas>
     </div>
     <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
       &#x1F3E0; <!-- Ícono de casa -->
