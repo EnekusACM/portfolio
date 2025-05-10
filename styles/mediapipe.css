@@ -1,22 +1,30 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #f0f0f0; /* Fondo opcional */
 }
 
 .camera-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 16px); /* Ancho total menos 8px de margen a cada lado */
+  max-width: 100%; /* Evita que exceda el ancho de la pantalla */
+  margin: 8px; /* Margen de 8px alrededor */
   position: relative;
-  width: 480px;
-  height: 360px;
-  margin: 20px auto;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
+}
+
+.camera-container video,
+.camera-container canvas {
+  width: 100%; /* Ajusta al ancho del contenedor */
+  height: auto; /* Mantén la proporción del video */
+  border: 1px solid #ccc; /* Opcional: borde para visualización */
+  border-radius: 8px; /* Opcional: esquinas redondeadas */
 }
 
 #camera {
