@@ -23,6 +23,22 @@ function onResults(results) {
       drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS,
                      {color: '#00FF00', lineWidth: 5});
       drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
+
+      // Detecta si la punta del índice (8) y el pulgar (4) están juntos
+      const indexTip = landmarks[8]; // Punta del índice
+      const thumbTip = landmarks[4]; // Punta del pulgar
+
+      // Calcula la distancia euclidiana entre los dos puntos
+      const distance = Math.sqrt(
+        Math.pow(indexTip.x - thumbTip.x, 2) +
+        Math.pow(indexTip.y - thumbTip.y, 2) +
+        Math.pow(indexTip.z - thumbTip.z, 2)
+      );
+
+      // Si la distancia es menor a un umbral, redirige a la URL
+      if (distance < 0.05) { // Ajusta el umbral según sea necesario
+        window.location.href = 'https://enekusacm.github.io/portfolio/index.html'; // Cambia por tu URL
+      }
     }
   }
   canvasCtx.restore();
