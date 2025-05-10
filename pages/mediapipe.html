@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Rick o Morty</title>
+  <link rel="stylesheet" href="../styles/mensaje.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
+</head>
+
+<body>
+  <header>
+    <h1 style="text-align: center; font-size: 48px;">Web de mensaje bonico</h1>
+  </header>
+  <div class="description">
+    <p>Aquí hay unos animales bonicos en un carrousel de fotos.</p>
+    <p>Si quieres leer una frase tan bonita como tu alma pulsa en el botón de abajo</p>
+  </div>
+
+  <main>
+    <div class="camera-container">
+      <video id="camera" autoplay playsinline></video>
+      <canvas id="output" class="output"></canvas>
+    </div>
+    <div class="btn-container">
+      <button id="boton" class="animated-button">
+        <span>✨ Haz clic para leer tu mensaje bonico ✨</span>
+      </button>
+    </div>
+    <p id="mensaje" class="mensaje">Juega con este corazón, ¡pincha en él!</p>
+    <svg class="heart-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg> 
+    <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
+      &#x1F3E0; <!-- Ícono de casa -->
+    </button>
+  </main>
+
+  <script>
+    const videoElement = document.getElementById('camera');
+    const canvasElement = document.getElementById('output');
+    const canvasCtx = canvasElement.getContext('2d');
+
+    // Configurar MediaPipe Hands
+    const hands = new Hands({
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+    });
+    hands.setOptions({
+      maxNumHands: 2,
+      modelComplexity: 1,
+      minDetectionConfidence: 0.5,
+      minTrackingConfidence: 0.5,
+    });
+
+    hands.onResults((results) => {
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      canvasCtx.drawImage(
+        results.image, 0, 0, canvasElement.width, canvasElement.height
+      );
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, {color: '#00FF00', lineWidth: 5});
+          drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
+        }
+      }
+      canvasCtx.restore();
+    });
+
+    // Configurar cámara
+    const camera = new Camera(videoElement, {
+      onFrame: async () => {
+        await hands.send({image: videoElement});
+      },
+      width: 1280,
+      height: 720,
+    });
+    camera.start();
+  </script>
+</body>
+</html>
