@@ -3,27 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generador de Rick o Morty</title>
+  <title>MediaPipe Hands</title>
   <link rel="stylesheet" href="../styles/mediapipe.css">
-  <link rel="stylesheet" href="../styles/mensaje.css">
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
 </head>
 
 <body>
   <header>
-    <h1 style="text-align: center; font-size: 48px;">Web de mensaje bonico</h1>
+    <h1 style="text-align: center; font-size: 48px;">Detección de Manos con MediaPipe</h1>
   </header>
-  <div class="description">
-    <p>Aquí hay unos animales bonicos en un carrousel de fotos.</p>
-    <p>Si quieres leer una frase tan bonita como tu alma pulsa en el botón de abajo</p>
-  </div>
-
   <main>
     <div class="camera-container">
-        <video id="camera" autoplay playsinline></video>
-        <canvas id="output" class="output"></canvas>
-      </div>
+      <video id="camera" autoplay playsinline></video>
+      <canvas id="output" class="output"></canvas>
+    </div>
     <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
       &#x1F3E0; <!-- Ícono de casa -->
     </button>

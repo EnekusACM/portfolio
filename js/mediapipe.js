@@ -34,7 +34,7 @@ hands.onResults((results) => {
     );
   }
 
-  // Opcional: Dibujar los puntos de referencia de la mano
+  // Dibujar los puntos de referencia de la mano
   if (results.multiHandLandmarks) {
     for (const landmarks of results.multiHandLandmarks) {
       drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, { color: '#00FF00', lineWidth: 5 });
