@@ -1,0 +1,47 @@
+body {
+  font-family: sans-serif;
+  background: #222;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: #333;
+  padding: 1em;
+}
+
+.camera-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 1em;
+}
+
+.output_canvas, .segmentation_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+select, input[type='file'], button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover, select:hover {
+  background: #666;
+}

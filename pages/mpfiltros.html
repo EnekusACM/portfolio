@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaPipe Filtros y Segmentación</title>
+  <link rel="stylesheet" href="../styles/mpfiltros.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation/selfie_segmentation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MediaPipe Pose + Segmentación</h1>
+  </header>
+
+  <main>
+    <div class="camera-container">
+      <video class="input_video" autoplay muted playsinline style="display:none;"></video>
+      <canvas class="output_canvas"></canvas>
+      <canvas class="segmentation_canvas"></canvas>
+    </div>
+
+    <div class="controls">
+      <label for="filter-select">Filtro:</label>
+      <select id="filter-select">
+        <option value="normal">Normal</option>
+        <option value="grayscale">Grayscale</option>
+        <option value="invert">Invertir</option>
+        <option value="sepia">Sepia</option>
+      </select>
+
+      <label for="background-select">Fondo:</label>
+      <select id="background-select">
+        <option value="default">Oscuro</option>
+        <option value="forest">Bosque</option>
+        <option value="beach">Playa</option>
+        <option value="city">Ciudad</option>
+      </select>
+
+      <input type="file" id="background-upload" accept="image/*">
+      <button id="save-image">Guardar imagen</button>
+      <button id="reset-background">Restablecer fondo</button>
+      <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
+        &#x1F3E0; <!-- Ícono de casa -->
+      </button>
+    </div>
+  </main>
+
+  <script src="../js/mpfiltros.js"></script>
+</body>
+</html>
