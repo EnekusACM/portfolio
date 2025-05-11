@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaPipe Pose</title>
+  <link rel="stylesheet" href="../styles/mpcuerpo.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <h1 style="text-align: center; font-size: 48px;">Detección de Cuerpo con MediaPipe</h1>
+  </header>
+  <main>
+    <div class="camera-container">
+      <video class="input_video" id="camera" style="display: none;"></video>
+      <canvas class="output_canvas"></canvas>
+    </div>
+    <button id="btn-atras" class="btn-atras" onclick="window.location.href='../index.html'">
+      &#x1F3E0; <!-- Ícono de casa -->
+    </button>
+  </main>
+
+  <script src="../js/mpcuerpo.js"></script>
+</body>
+</html>

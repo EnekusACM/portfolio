@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Fondo opcional */
+}
+
+.camera-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 16px); /* Ancho total menos 8px de margen a cada lado */
+  max-width: 100%; /* Evita que exceda el ancho de la pantalla */
+  margin: 8px; /* Margen de 8px alrededor */
+  position: relative;
+}
+
+.camera-container video,
+.camera-container canvas {
+  width: 100%; /* Ajusta al ancho del contenedor */
+  height: auto; /* Mantén la proporción del video */
+  border: 1px solid #ccc; /* Opcional: borde para visualización */
+  border-radius: 8px; /* Opcional: esquinas redondeadas */
+}
+
+#camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none; /* Evita que interfiera con el video */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-atras {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-atras:hover {
+  background-color: #0056b3;
+}
