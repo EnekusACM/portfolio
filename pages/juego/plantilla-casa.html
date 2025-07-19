@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi casa</title>
+    <link rel="stylesheet" href="../../styles/plantilla-casa.css">
+</head>
+<body>
+  <div id="game" class="casa-layout">
+    <aside id="actions">
+      <button onclick="toggleInventory()">Ver inventario</button>
+      <button onclick="sleep()">Dormir</button>
+      <button onclick="goToBattle()">Salir a combatir</button>
+      <button onclick="goToExplore()">Salir a explorar</button>
+
+    </aside>
+    <main>
+      <div id="narrative">Estás en casa</div>
+      <div id="inventory" class="hidden"></div>
+      <div id="status"></div>
+    </main>
+  </div>
+<script type="module" src="../../js/plantilla-casa.js"></script></body>
+</html>

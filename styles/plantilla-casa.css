@@ -1,0 +1,63 @@
+body {
+  font-family: sans-serif;
+  background: #222;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.casa-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+aside#actions {
+  background: #333;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  min-width: 180px;
+  align-items: flex-start;
+}
+
+aside#actions button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+aside#actions button:hover {
+  background: #666;
+}
+
+main {
+  flex: 1;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#inventory {
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 10px;
+  background: #222;
+  padding: 1em;
+  border-radius: 10px;
+  border: 1px solid #444;
+  max-width: 300px;
+}
+
+#inventory.hidden {
+  display: none;
+}

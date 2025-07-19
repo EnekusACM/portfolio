@@ -1,0 +1,21 @@
+.explore-spot {
+  background: #333;
+  color: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0006;
+  transition: opacity 0.3s;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  pointer-events: auto;
+}
+.explore-spot.found {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.explore-spot.visible {
+  opacity: 0.9;
+  pointer-events: auto;
+}
