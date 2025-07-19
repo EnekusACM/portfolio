@@ -54,21 +54,29 @@ function createRandomSpots() {
   const modal = document.createElement('div');
   modal.className = 'explore-modal';
   modal.innerHTML = `
-    <div>
-      <p>Has encontrado: ${item.name}</p>
-      <button id="guardar-btn">Guardar</button>
-      <button id="usar-btn">Usar ahora</button>
-      <button id="ignorar-btn">Seguir Explorando</button>
+    <div class="item-card">
+      <img src="${item.image}" alt="${item.name}" style="width:64px;height:64px;display:block;margin:auto;">
+      <h3>${item.name}</h3>
+      <p><strong>Tipo:</strong> ${item.type}</p>
+      <p><strong>Efecto:</strong> ${Object.entries(item.effect).map(([k,v]) => `${k}: ${v}`).join(', ')}</p>
+      <p><strong>Equipable:</strong> ${item.isSuitable ? 'Sí' : 'No'}</p>
+      <p><strong>Efecto instantáneo:</strong> ${item.instantEffect ? 'Sí' : 'No'}</p>
+      <p><strong>Temporal:</strong> ${item.temporal ? 'Sí' : 'No'}</p>
+      <div style="margin-top:10px;">
+        <button class="guardar-btn">Guardar</button>
+        <button class="usar-btn">Usar ahora</button>
+        <button class="ignorar-btn">Seguir Explorando</button>
+      </div>
     </div>
   `;
   document.body.appendChild(modal);
 
   function closeModal() {
     document.body.removeChild(modal);
-    spot.classList.remove('visible'); // <-- Quita la clase visible al cerrar el modal
+    spot.classList.remove('visible');
   }
 
-  document.getElementById('guardar-btn').onclick = () => {
+  modal.querySelector('.guardar-btn').onclick = () => {
     addItemToInventory(item);
     player = getPlayer();
     renderInventory();
@@ -76,7 +84,7 @@ function createRandomSpots() {
     closeModal();
   };
 
-  document.getElementById('usar-btn').onclick = () => {
+  modal.querySelector('.usar-btn').onclick = () => {
     if (item.type === "heal" && item.effect && item.effect.health) {
       updatePlayer({ health: Math.min(player.maxHealth, player.health + item.effect.health) });
     }
@@ -86,7 +94,7 @@ function createRandomSpots() {
     closeModal();
   };
 
-  document.getElementById('ignorar-btn').onclick = () => {
+  modal.querySelector('.ignorar-btn').onclick = () => {
     spot.classList.add('found');
     closeModal();
   };

@@ -1,3 +1,54 @@
+.explore-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #929292;
+}
+
+#item-cards {
+  width: 260px;
+  background: #8d969c;
+  padding: 1em 0.5em;
+  overflow-y: auto;
+  border-right: 2px solid #444;
+  box-sizing: border-box;
+}
+
+.item-card {
+  background: #2c2f33;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0008;
+  margin-bottom: 1em;
+  padding: 1em;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.item-card img {
+  margin-bottom: 0.5em;
+}
+.item-card button {
+  margin: 0.3em;
+  padding: 0.4em 1em;
+  border-radius: 6px;
+  border: none;
+  background: #7289da;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.item-card button:hover {
+  background: #99aab5;
+}
+
+#explore-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 2em;
+}
+
 .explore-spot {
   background: #333;
   color: #fff;
@@ -18,4 +69,19 @@
 .explore-spot.visible {
   opacity: 0.9;
   pointer-events: auto;
+}
+
+.explore-modal {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, 0);
+  background: #79858f;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #000a;
+  padding: 2em 1.5em;
+  z-index: 100;
+  min-width: 300px;
+  max-width: 90vw;
 }
